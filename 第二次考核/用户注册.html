@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>用户注册</title>
+</head>
+<style type="text/css">
+	#center{
+	text-align: center;
+	background-color: #8D8A86;
+}
+tr td,th{
+	border:1px solid white;
+	background-color: #DFDCD9;
+}
+
+</style>
+<body>
+	<form>
+	<table>
+		<tr>
+			<td colspan="2" id="center" >用户注册</td>
+		</tr>
+		<tr>
+			<td>用户名</td>
+			<td><input type="text" name="UserName" maxlength="20"></td>
+		</tr>
+		<tr>
+			<td>密码</td>
+			<td><input  type="password" name="UserPass" maxlength="20"></td>
+		</tr>
+		<tr>
+			<td>性别</td>
+			<td><input type="radio" name="sex" checked="true" >男<input type="radio" name="sex">女</td>
+		</tr>
+		<tr>
+			<td>爱好</td>
+			<td><input type="checkbox" name="like">写作<input type="checkbox" name="like">听音乐<input type="checkbox" name="like">体育</td>
+		</tr>
+		<tr>
+			<td>省份</td>
+			<td>
+				<select>
+  					<option value ="shaanxi" selected="selected">陕西省</option>
+  					<option value ="shanx">山西省</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>自我介绍</td>
+			<td width="25px" height="5px" >
+				<textarea name="intro" style="height: 50px; overflow-y: scroll;">
+					这个家伙什么也没留下
+				</textarea>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2" id="center"><input type="submit" name="send"><input type="reset" name="reset"></td>
+		</tr>
+	</table>
+	</form>
+</body>
+</html>

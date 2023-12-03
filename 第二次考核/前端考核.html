@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Swiper demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="./swiper.min.css">
+
+  <!-- Demo styles -->
+  <style>
+    body {
+      background: #fff;
+      font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .swiper-container {
+      width: 100%;
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    
+    .swiper-slide {
+      background-position: center;
+      background-size: cover;
+      width: 100%;
+      height: 700px;
+      text-align: center;
+    }
+    
+    .container {
+      width: 600px;
+      height: 400px;
+      overflow: hidden;
+      margin: auto;
+      margin-top: 70px;
+    }
+    
+    .container .photo {
+      width: 2000px;
+      animation: switch 5s ease-out infinite;
+      /*切换 全过程5s， infinite轮播*/
+    }
+    
+    .container .photo img {
+      float: left;
+      width: 600px;
+      height: 400px;
+    }
+    
+    @keyframes switch {
+      0%,
+      25% {
+        margin-left: 0;
+      }
+      35%,
+      60% {
+        margin-left: -600px;
+      }
+      70%,
+      100% {
+        margin-left: -1200px;
+      }
+    }
+    
+    h2 {
+      text-align: center;
+    }
+    
+    textarea {
+      width: 80%;
+      height: 200px;
+      margin-top: 70px;
+    }
+    
+    button {
+      margin-top: 50px;
+    }
+    
+    .swiper-slide p {
+      margin-top: 70px;
+      font-size: 20px;
+    }
+    /* 旋转 */
+    
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    
+    .wrap {
+      width: 100%;
+      height: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .cube {
+      width: 200px;
+      height: 200px;
+      position: absolute;
+      transform-style: preserve-3d;
+      transform: rotateY(0deg) rotateX(45deg) rotateZ(-45deg);
+      animation: cube 8s linear infinite;
+    }
+    
+    .cube .side {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      box-sizing: border-box;
+      border: 1px solid #000;
+      padding: 10px;
+      background-color: #fff;
+    }
+    
+    .cube .cube-front {
+      transform: rotateY(0deg) translateZ(100px);
+    }
+    
+    .cube .cube-back {
+      transform: rotateY(180deg) translateZ(100px);
+    }
+    
+    .cube .cube-left {
+      transform: rotateY(-90deg) translateZ(100px);
+    }
+    
+    .cube .cube-right {
+      transform: rotateY(90deg) translateZ(100px);
+    }
+    
+    .cube .cube-top {
+      transform: rotateX(90deg) translateZ(100px);
+    }
+    
+    .cube .cube-bottom {
+      transform: rotateX(-90deg) translateZ(100px);
+    }
+    
+    @keyframes cube {
+      from {
+        transform: rotateY(0deg) rotateX(-45deg) rotateZ(-45deg);
+      }
+      to {
+        transform: rotateY(360deg) rotateX(-45deg) rotateZ(-45deg);
+      }
+    }
+    
+    .cube:hover {
+      animation-play-state: paused;
+    }
+    
+    div.side p {
+      margin-top: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Swiper -->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <section>
+        <div class="title">1.解决图片底部白边问题</div>
+        <div class="content">处理图片与div盒子间的白边问题，分析其出现的原因，至少2种方法</div>
+        </section>
+  </div>
+      <div class="swiper-slide"> 
+      <section>
+      <div class="title">2.请列举几种隐藏元素的方法</div>
+      <div class="content">尽可能地多</div>
+      </section>
+  </div>
+  <div class="swiper-slide"> 
+    <section>
+    <div class="title">3.你眼中的BFC</div>
+    <div class="content">其具体名称、意义、触发方式、使用方式与规则</div>
+    </section>
+</div>
+      <div class="swiper-slide">
+        <section>
+          <div class="title">4.轮播图</div>
+          <div class="content">请用你所学的html和css知识写出一个简单的轮播图(样例图片仅供参考，实际图片请自取)</div>
+          <img src="./imgs/1.png" alt="">
+      </section>
+      </div>
+      <div class="swiper-slide">
+        <section>
+        <div class="title">5.用户页面注册</div>
+        <div class="content">用学过的表格表单内容实现下图</div>
+        <img src="./imgs/2.jpg" alt="">
+        </section>
+  </div>
+      <div class="swiper-slide">
+        <section>
+          <div class="title">6.实现六芒星效果</div>
+          <div class="content">此题意在利用边框属性构建等边三角形，开发思维</div>
+          <img src="./imgs/3.png" alt="">
+      </section>
+      </div>
+    </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
+  </div>
+
+  <!-- Swiper JS -->
+  <script src="./swiper.min.js"></script>
+
+  <!-- Initialize Swiper -->
+  <script>
+    let swiper = new Swiper('.swiper-container', {
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  </script>
+  <script>
+    let btns = document.querySelectorAll("button");
+    let textArea = document.querySelectorAll("textarea");
+    for (let i = 0; i < textArea.length; i++) {
+      btns[i].disabled = true;
+    }
+
+    for (let i = 0; i < textArea.length; i++) {
+      textArea[i].addEventListener('input', function() {
+        console.log(123);
+        if (this.value.trim() != '') {
+          btns[i].disabled = false;
+        } else {
+          btns[i].disabled = true;
+        }
+      })
+    }
+
+
+
+
+    for (let i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', page.bind(btns[i], i));
+    }
+    flags = [false, false, false, false];
+
+    function page(i) {
+      function preElement(ele) {
+        var oPrev = ele.previousElementSibling || ele.previousSibling;
+        return oPrev.nodeType == 1 ? oPrev : null;
+      }
+      if (flags[i] == false) {
+        let str = preElement(this).querySelector('textarea').value;
+        if (str != '') {
+          let p = document.createElement("p");
+          p.innerHTML = str;
+          preElement(this).appendChild(p);
+          preElement(this).removeChild(preElement(this).querySelector('textarea'));
+          this.innerHTML = '修改';
+          flags[i] = true;
+        }
+      } else {
+        let p = preElement(this).querySelector("p");
+        let textarea = document.createElement("textarea");
+        textarea.value = p.innerHTML;
+        p.parentNode.appendChild(textarea);
+        p.parentNode.removeChild(p);
+        btns[i].innerHTML = '完成';
+        flags[i] = false;
+      }
+    }
+  </script>
+</body>
+
+</html>
